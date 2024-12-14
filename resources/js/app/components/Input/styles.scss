@@ -1,0 +1,28 @@
+@use "../../scss/variables" as variables;
+
+.input {
+    &-label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-label-text {
+        font-size: 26px;
+        display: flex;
+    }
+
+    &-input {
+        border: 1px solid variables.$border;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-top: 10px;
+
+        @media (max-width: 768px) {
+            padding: 8px 16px;
+        }
+    }
+
+    &-asteriks {
+        color: variables.$primary;
+    }
+}

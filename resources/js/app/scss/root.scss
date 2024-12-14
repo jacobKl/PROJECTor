@@ -1,0 +1,15 @@
+@use "./reset";
+@use "./fonts";
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1, .h1 {
+    font-size: 60px;
+}
+
+h3, .h3 {
+    font-size: 36px;
+}

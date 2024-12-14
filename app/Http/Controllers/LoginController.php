@@ -9,10 +9,6 @@ use Inertia\Inertia;
 class LoginController extends Controller
 {
     public function index(Request $request) {
-        $users = User::all();
-
-        return Inertia::render('Login', [
-            'users' => $users
-        ]);
+        return Inertia::render('LoginPage');
     }
 }

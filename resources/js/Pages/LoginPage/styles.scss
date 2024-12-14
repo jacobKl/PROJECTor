@@ -1,0 +1,17 @@
+.login-page {
+    &-row {
+        height: 100%;
+    }
+
+    &-form-column {
+        flex: 1 0 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &-register-column {
+        flex: 1 0 60%;
+        background: radial-gradient(circle, #EB4511 14%, #A72800 100%);
+    }
+}
