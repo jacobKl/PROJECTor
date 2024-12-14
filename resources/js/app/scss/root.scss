@@ -1,5 +1,6 @@
 @use "./reset";
 @use "./fonts";
+@use "./variables" as variables;
 
 .row {
     display: flex;
@@ -12,4 +13,21 @@ h1, .h1 {
 
 h3, .h3 {
     font-size: 36px;
+}
+
+.btn {
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    text-align: center;
+    border: none;
+    -webkit-appearance: none;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &-primary {
+        color: white;
+        background-color: variables.$primary;
+    }
 }

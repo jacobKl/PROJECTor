@@ -7,7 +7,7 @@ const LoginPage = () => {
     return (
         <div className="row login-page-row">
             <div className="login-page-form-column">
-                <h1>Welcome back! 👋 </h1>
+                <h1>Welcome back!</h1>
                 <h3>Sign in to streamline your team’s time and tasks.</h3>
                 <LoginForm />
             </div>

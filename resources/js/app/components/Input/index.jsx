@@ -1,7 +1,15 @@
 import "./styles.scss";
 import React from "react";
 
-const Input = ({ label, name, value, onInput, isRequired, placeholder }) => {
+const Input = ({
+    label,
+    name,
+    value,
+    onInput,
+    isRequired,
+    placeholder,
+    error,
+}) => {
     return (
         <div className="input">
             <label className="input-label">
@@ -16,6 +24,7 @@ const Input = ({ label, name, value, onInput, isRequired, placeholder }) => {
                     value={value}
                     onInput={onInput}
                 />
+                <span className="input-error">{error}</span>
             </label>
         </div>
     );
