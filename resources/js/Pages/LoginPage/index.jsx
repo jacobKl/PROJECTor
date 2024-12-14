@@ -2,8 +2,14 @@ import "./styles.scss";
 import React from "react";
 import Layout from "../../app/components/Layout";
 import LoginForm from "../../app/components/LoginForm";
+import { router } from "@inertiajs/react";
+
 
 const LoginPage = () => {
+    const handleClick = () => {
+        router.visit('/register');
+    }
+
     return (
         <div className="row login-page-row">
             <div className="login-page-form-column">
@@ -12,7 +18,11 @@ const LoginPage = () => {
                 <LoginForm />
             </div>
             <div className="login-page-register-column">
-
+                <p className="login-page-welcome h1">Welcome to Projector!</p>
+                <p className="login-page-no-account h3">Don’t have an account yet?</p>
+                <div>
+                    <button onClick={handleClick} className="btn btn-white">Register</button>
+                </div>
             </div>
         </div>
     );

@@ -7,7 +7,8 @@
     }
 
     &-label-text {
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 700;
         display: flex;
     }
 
@@ -24,6 +25,7 @@
 
     &-asteriks {
         color: variables.$primary;
+        margin-left: 2px;
     }
 
     &-error {

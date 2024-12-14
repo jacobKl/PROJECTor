@@ -48,7 +48,7 @@ h3, .h3 {
 }
 
 .btn {
-    padding: 20px;
+    padding: 16px;
     width: 100%;
     border-radius: 8px;
     text-align: center;
@@ -57,9 +57,26 @@ h3, .h3 {
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+    transition: .4s all;
+    border: 1px solid transparent;
 
     &-primary {
         color: white;
         background-color: variables.$primary;
+
+        &:hover {
+            background-color: lighten(variables.$primary, 5%);
+        }
+    }
+
+    &-white {
+        color: black;
+        background-color: white;
+
+        &:hover {
+            border-color: white;
+            background-color: transparent;
+            color: white;
+        }
     }
 }

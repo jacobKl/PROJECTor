@@ -4,7 +4,7 @@
     }
 
     &-form-column {
-        flex: 1 0 40%;
+        flex: 1 0 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -12,8 +12,6 @@
 
         @media (max-width: 1200px) {
             padding: 40px;
-
-            flex: 1 0 50%;
         }
 
         @media (max-width: 768) {
@@ -22,6 +20,7 @@
 
         h1 {
             margin-bottom: 20px;
+            font-weight: 700;
 
             @media (max-width: 991px) {
                 margin-bottom: 10px;
@@ -38,15 +37,30 @@
     }
 
     &-register-column {
-        flex: 1 0 60%;
+        flex: 1 0 50%;
         background: radial-gradient(circle, #EB4511 14%, #A72800 100%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: white;
 
-        @media (max-width: 1200px) {
-            flex: 1 0 50%;
+        .h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         @media (max-width: 768px) {
             display: none;
         }
+    }
+
+    &-welcome {
+        margin-bottom: 10px;
+    }
+
+    &-no-account {
+        margin-bottom: 20px;
     }
 }
