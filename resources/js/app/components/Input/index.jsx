@@ -9,6 +9,7 @@ const Input = ({
     isRequired,
     placeholder,
     error,
+    type = "text",
 }) => {
     return (
         <div className="input">
@@ -17,13 +18,26 @@ const Input = ({
                     {label}{" "}
                     {isRequired && <span className="input-asteriks">*</span>}
                 </span>
-                <input
-                    className="input-input"
-                    placeholder={placeholder}
-                    name={name}
-                    value={value}
-                    onInput={onInput}
-                />
+                {type === "textarea" ? (
+                    <textarea
+                        className="input-input"
+                        placeholder={placeholder}
+                        name={name}
+                        onInput={onInput}
+                        rows={4}
+                    >
+                        {value}
+                    </textarea>
+                ) : (
+                    <input
+                        className="input-input"
+                        placeholder={placeholder}
+                        name={name}
+                        value={value}
+                        onInput={onInput}
+                        type={type}
+                    />
+                )}
                 <span className="input-error">{error}</span>
             </label>
         </div>

@@ -1,0 +1,11 @@
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+
+    &-project {
+        color: initial;
+        text-decoration: none;
+    }
+}

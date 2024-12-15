@@ -73,7 +73,7 @@ const Layout = ({ children, mainClass, showAside = true }) => {
                     </div>
                 </aside>
             )}
-            <main className={mainClass}>{children}</main>
+            <main className={clsx(mainClass, showAside && "main-padded")}>{children}</main>
         </>
     );
 };
