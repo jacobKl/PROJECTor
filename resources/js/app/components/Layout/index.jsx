@@ -4,6 +4,7 @@ import "./styles.scss";
 import { clsx } from "clsx";
 import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
+import useNotificationsPooling from "../../hooks/useNotificationsPooling";
 
 const URLS = [
     {
@@ -31,6 +32,8 @@ const URLS = [
 const Layout = ({ children, mainClass, showAside = true }) => {
     const [fullSidebar, setFullSidebar] = useState(true);
     const { url } = usePage();
+
+    const { notifications } = useNotificationsPooling();
 
     return (
         <>

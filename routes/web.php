@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ProjectParticipantController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Middleware\AuthenticatedUser;
@@ -19,5 +21,9 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
     Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
     Route::post('/projects', [ProjectsController::class, 'store'])->name('projects.store');
     Route::get('/projects/{project}', [ProjectsController::class, 'show'])->name('projects.show');
+
+    Route::get('/notifications', [NotificationController::class, 'index']);
+
+    Route::post('/project-participant', [ProjectParticipantController::class, 'store']);
 });
 

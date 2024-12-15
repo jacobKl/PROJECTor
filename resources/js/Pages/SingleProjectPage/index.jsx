@@ -1,9 +1,12 @@
 import React from "react";
 import Layout from "../../app/components/Layout";
+import InviteParticipantForm from "../../app/components/InviteParticipantForm";
 
 const SingleProjectPage = ({project}) => {
     return (
-        <div>{project.name}</div>
+        <div>
+            <InviteParticipantForm projectId={project.id} />
+        </div>
     );
 };
 
