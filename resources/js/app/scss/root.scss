@@ -60,6 +60,8 @@ h3, .h3 {
     transition: .4s all;
     border: 1px solid transparent;
     width: fit-content;
+    background-color: transparent;
+    color: white;
 
     &-primary {
         color: white;

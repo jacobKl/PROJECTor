@@ -66,14 +66,21 @@ const Layout = ({ children, mainClass, showAside = true }) => {
 
                     <div className="aside-footer">
                         <button
+                            className="btn"
                             onClick={() => setFullSidebar(!fullSidebar)}
                         >
                             +
                         </button>
+                        <div>
+                            <div>powiadomienia</div>
+                        </div>
                     </div>
                 </aside>
             )}
-            <main className={clsx(mainClass, showAside && "main-padded")}>{children}</main>
+
+            <main className={clsx(mainClass, showAside && "main-padded")}>
+                {children}
+            </main>
         </>
     );
 };

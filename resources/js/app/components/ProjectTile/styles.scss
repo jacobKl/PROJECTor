@@ -1,0 +1,15 @@
+.project-tile {
+    color: initial;
+    text-decoration: none;
+
+    &-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    &-deadline {
+        color: #979797;
+        margin-bottom: 10px;
+    }
+}

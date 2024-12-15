@@ -32,4 +32,11 @@ class ProjectsController extends Controller
 
         return to_route('projects.index');
     }
+
+    public function show(Request $request, Project $project) {
+
+        return Inertia::render("SingleProjectPage", [
+            "project" => $project
+        ]);
+    }
 }

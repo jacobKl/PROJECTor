@@ -1,22 +1,20 @@
 import "./styles.scss";
 import React from "react";
 import Layout from "../../app/components/Layout";
+import ProjectTile from "../../app/components/ProjectTile";
 import CreateProjectForm from "../../app/components/CreateProjectForm";
-import { Link } from "@inertiajs/react";
 
 const ProjectsPage = ({ userProjects = [] }) => {
-    console.log(userProjects);
-
     return (
         <>
-            {userProjects.length && (<div className="projects-grid">
-                {userProjects.map((single,ix) => (
-                    <Link key={ix} className="card projects-grid-project" href={`/projects/${single.id}`}>
-                        <h5>{single.name}</h5>
-                        <p>{single.description}</p>
-                    </Link>
-                ))}
-            </div>)}
+            {userProjects.length && (
+                <>
+                    <h3>Your Projects</h3>
+                    <div className="projects-grid">
+                        {userProjects.map((single, ix) => <ProjectTile key={ix} {...single} />)}
+                    </div>
+                </>
+            )}
             <CreateProjectForm />
         </>
     );
