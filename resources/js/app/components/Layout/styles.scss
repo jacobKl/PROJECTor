@@ -1,2 +1,62 @@
 @use "../../scss/variables" as variables;
 
+.aside {
+    background-color: variables.$primary;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    max-width: 70px;
+    transition: .4s linear all;
+
+    justify-content: space-between;
+
+    &-logo {
+        max-width: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+    }
+
+    &-menu {
+        overflow: hidden;
+    }
+
+    &-menu-item {
+        margin-bottom: 20px;
+        opacity: 0.6;
+        transition: .1s linear all;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &-menu-item-active {
+        opacity: 1;
+    }
+
+    &-menu-item a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    &-menu-item-icon {
+        font-size: 26px;
+        margin-right: 10px;
+    }
+
+    &-menu-item-text {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
+    &-full {
+        max-width: 190px;
+    }
+}

@@ -32,8 +32,7 @@ LoginPage.layout = (page) => (
     <Layout
         children={page}
         title="ProjectOR | Welcome back!"
-        showHeader={false}
-        showFooter={false}
+        showAside={false}
         mainClass={"login-page"}
     />
 );

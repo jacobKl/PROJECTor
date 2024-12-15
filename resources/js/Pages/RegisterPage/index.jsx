@@ -15,8 +15,7 @@ RegisterPage.layout = (page) => (
     <Layout
         children={page}
         title="Projector | Register"
-        showHeader={false}
-        showFooter={false}
+        showAside={false}
         mainClass={"register-page"}
     />
 );
