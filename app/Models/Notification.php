@@ -25,15 +25,16 @@ class Notification extends Model
         return $query->where("user_id", $user->id)->where('received', false);
     }
 
-    public static function userInvited(Project $project, int $userId)
+    public static function userInvited(Project $project, int $userId, int $projectParticipantId)
     {
-        self::create([
+        return self::create([
             "user_id" => $userId,
             "type" => self::TYPE_PROJECT_INVITATION,
             "message" => "You were invited to project " . $project->name,
             "received" => false,
             "data" => [
-                "project_id" => $project->id
+                "project_id" => $project->id,
+                "invitation_id" => $projectParticipantId
             ]
         ]);
     }

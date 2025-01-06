@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const POOLING_DELAY = 15;
 
-const useNotificationsPooling = () => {
+export const useNotificationsPooling = () => {
     const [notifications, setNotifications] = useState();
 
     useEffect(() => {
@@ -30,5 +30,3 @@ const useNotificationsPooling = () => {
 
     return { notifications };
 };
-
-export default useNotificationsPooling;

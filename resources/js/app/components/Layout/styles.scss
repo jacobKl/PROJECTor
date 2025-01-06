@@ -11,6 +11,12 @@
 
     justify-content: space-between;
 
+    &-footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
     &-footer .btn {
         padding: 8px;
         margin: 0 auto;
@@ -31,9 +37,11 @@
     }
 
     &-menu-item {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         opacity: 0.6;
         transition: .1s linear all;
+        display: flex;
+        align-items: center;
 
         &:hover {
             opacity: 1;
@@ -52,18 +60,21 @@
     }
 
     &-menu-item-icon {
-        font-size: 20px;
+        font-size: 12px;
         margin-right: 10px;
     }
 
     &-menu-item-text {
-        font-size: 16px;
-        text-transform: uppercase;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         white-space: nowrap;
     }
 
     &-full {
-        max-width: 190px;
+        max-width: 140px;
     }
+}
+
+.main {
+    min-height: 100vh;
 }

@@ -4,7 +4,7 @@ import "./styles.scss";
 import { clsx } from "clsx";
 import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
-import useNotificationsPooling from "../../hooks/useNotificationsPooling";
+import Notifications from "../Notifications";
 
 const URLS = [
     {
@@ -32,8 +32,6 @@ const URLS = [
 const Layout = ({ children, mainClass, showAside = true }) => {
     const [fullSidebar, setFullSidebar] = useState(true);
     const { url } = usePage();
-
-    const { notifications } = useNotificationsPooling();
 
     return (
         <>
@@ -68,20 +66,18 @@ const Layout = ({ children, mainClass, showAside = true }) => {
                     </ul>
 
                     <div className="aside-footer">
-                        <button
-                            className="btn"
+                        <Notifications />
+                        {/* <button
+                            className="aside-footer-show-more"
                             onClick={() => setFullSidebar(!fullSidebar)}
                         >
-                            +
-                        </button>
-                        <div>
-                            <div>powiadomienia</div>
-                        </div>
+                            <i className="fa-solid fa-eye"></i>
+                        </button> */}
                     </div>
                 </aside>
             )}
 
-            <main className={clsx(mainClass, showAside && "main-padded")}>
+            <main className={clsx("main", mainClass, showAside && "main-padded")}>
                 {children}
             </main>
         </>

@@ -5,6 +5,8 @@ import InviteParticipantForm from "../../app/components/InviteParticipantForm";
 const SingleProjectPage = ({project}) => {
     return (
         <div>
+            <h3>All tasks</h3>
+
             <InviteParticipantForm projectId={project.id} />
         </div>
     );

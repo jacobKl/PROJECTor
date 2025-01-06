@@ -25,9 +25,8 @@ const Input = ({
                         name={name}
                         onInput={onInput}
                         rows={4}
-                    >
-                        {value}
-                    </textarea>
+                        defaultValue={value}
+                    ></textarea>
                 ) : (
                     <input
                         className="input-input"
@@ -38,7 +37,7 @@ const Input = ({
                         type={type}
                     />
                 )}
-                <span className="input-error">{error}</span>
+                {error && (<span className="input-error">{error}</span>)}
             </label>
         </div>
     );

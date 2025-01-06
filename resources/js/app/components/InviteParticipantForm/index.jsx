@@ -1,3 +1,4 @@
+import "./styles.scss";
 import { useForm } from '@inertiajs/react';
 import React from 'react'
 import Input from "../Input";
@@ -16,10 +17,18 @@ const InviteParticipantForm = ({projectId}) => {
     };
 
     return (
-        <form onSubmit={submit}>
-            <Input name="email" type="email" value={data?.email} onInput={e => setData("email", e.target.value)} error={errors?.email} />
-            <input type="submit" />
-        </form>
+        <div className="invite-participant-form">
+            <h3>Invite collaborator</h3>
+            <form onSubmit={submit}>
+                <Input placeholder="User email" name="email" type="email" value={data?.email} onInput={e => setData("email", e.target.value)} error={errors?.email} />
+                <select name="permissions">
+                    <option>-Select permissions-</option>
+                    <option value="full">Full access</option>
+                    <option value="read_only">Read only</option>
+                </select>
+                <input className="btn btn-primary" type="submit" />
+            </form>
+        </div>
     );
 }
 

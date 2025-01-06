@@ -10,11 +10,20 @@ use Inertia\Inertia;
 class ProjectsController extends Controller
 {
     public function index(Request $request) {
-        $userProjects = Project::createdByUser()->get();
+        $userProjects = Project::userProjects()->get();
 
+        $userProjects = $userProjects->map(function (Project $project) {
+            return [
+                'id' => $project->id,
+                'name' => $project->name,
+                'description' => $project->description,
+                'deadline' => $project->deadline,
+                'participants' => $project->getParticipantsAmount($project->id)
+            ];
+        });
 
         return Inertia::render('ProjectsPage', [
-            "userProjects" => $userProjects
+            'userProjects' => $userProjects
         ]);
     }
 

@@ -25,5 +25,6 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
     Route::get('/notifications', [NotificationController::class, 'index']);
 
     Route::post('/project-participant', [ProjectParticipantController::class, 'store']);
+    Route::post('/join-project', [ProjectParticipantController::class, 'joinProject']);
 });
 

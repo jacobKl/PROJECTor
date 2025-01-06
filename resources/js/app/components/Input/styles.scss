@@ -10,13 +10,13 @@
         font-size: 14px;
         font-weight: 500;
         display: flex;
+        margin-bottom: 5px;
     }
 
     &-input {
         border: 1px solid variables.$border;
         border-radius: 8px;
         padding: 8px 10px;
-        margin-top: 5px;
 
         @media (max-width: 768px) {
             padding: 8px 16px;
