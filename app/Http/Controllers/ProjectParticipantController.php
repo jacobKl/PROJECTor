@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use App\Models\Project;
 use App\Models\ProjectParticipant;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -14,16 +15,19 @@ class ProjectParticipantController extends Controller
     public function store(Request $request) {
         $data = $request->validate([
             'project_id' => 'required',
-            'email' => 'required|exists:users'
+            'email' => 'required|exists:users',
+            'permissions' => 'required'
         ]);
 
         $project = Project::findOrFail($data['project_id']);
         $invited = User::where('email', $data['email'])->firstOrFail();
+        $role = Role::where('name', $data['permissions'])->firstOrFail();
 
         $projectParticipant = ProjectParticipant::create([
             'project_id' => $project->id,
             'user_id' => $invited->id,
-            'status' => ProjectParticipant::STATUS_INVITED
+            'status' => ProjectParticipant::STATUS_INVITED,
+            'role_id' => $role->id
         ]);
 
         Notification::userInvited($project, $invited->id, $projectParticipant->id);

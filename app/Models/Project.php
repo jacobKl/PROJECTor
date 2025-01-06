@@ -20,12 +20,22 @@ class Project extends Model
         $userProjects = ProjectParticipant::where('user_id', $userId)->pluck('project_id')->toArray();
         $createdByUser = Project::where('user_id', $userId)->pluck('id')->toArray();
 
-        return $query->whereIn('user_id', [...$userProjects, ...$createdByUser]);
+        return $query->whereIn('id', [...$userProjects, ...$createdByUser]);
     }
 
-    public function getParticipantsAmount(int $projectId) {
-        $participants = ProjectParticipant::where('project_id', $projectId)->count() + 1;
+    public function getParticipantsAmount() {
+        $participants = ProjectParticipant::where('project_id', $this->id)->where('status', ProjectParticipant::STATUS_ACTIVE)->count() + 1;
 
         return $participants;
+    }
+
+    public function toFrontendObject() {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'deadline' => $this->deadline,
+            'participants' => $this->getParticipantsAmount()
+        ];
     }
 }

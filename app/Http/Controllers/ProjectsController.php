@@ -13,13 +13,7 @@ class ProjectsController extends Controller
         $userProjects = Project::userProjects()->get();
 
         $userProjects = $userProjects->map(function (Project $project) {
-            return [
-                'id' => $project->id,
-                'name' => $project->name,
-                'description' => $project->description,
-                'deadline' => $project->deadline,
-                'participants' => $project->getParticipantsAmount($project->id)
-            ];
+            return $project->toFrontendObject();
         });
 
         return Inertia::render('ProjectsPage', [
