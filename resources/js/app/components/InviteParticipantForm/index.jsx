@@ -51,6 +51,7 @@ const InviteParticipantForm = ({ projectId }) => {
                         className="btn btn-primary"
                         type="submit"
                         blocked={processing}
+                        value="Invite"
                     />
                 </div>
             </form>

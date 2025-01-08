@@ -1,15 +1,19 @@
 import React from "react";
-import Layout from "../../app/components/Layout";
-import InviteParticipantForm from "../../app/components/InviteParticipantForm";
+
 import { useProjectPermission } from "../../app/hooks/useProjectPermission";
 
-const SingleProjectPage = ({project}) => {
+import Layout from "../../app/components/Layout";
+import InviteParticipantForm from "../../app/components/InviteParticipantForm";
+import TasksList from "../../app/components/TasksList";
 
-    const { isAdmin } = useProjectPermission();
+const SingleProjectPage = ({ project, tasks }) => {
+
+    const { admin, fullAccess, readOnly  } = useProjectPermission();
 
     return (
         <div>
-            {isAdmin && <InviteParticipantForm projectId={project.id} />}
+            {admin && <InviteParticipantForm projectId={project.id} />}
+            {(admin || fullAccess || readOnly) && <TasksList projectId={project.id} />}
         </div>
     );
 };

@@ -10,6 +10,7 @@ const Input = ({
     placeholder,
     error,
     type = "text",
+    rows = 4
 }) => {
     return (
         <div className="input">
@@ -24,7 +25,7 @@ const Input = ({
                         placeholder={placeholder}
                         name={name}
                         onInput={onInput}
-                        rows={4}
+                        rows={rows}
                         defaultValue={value}
                     ></textarea>
                 ) : (

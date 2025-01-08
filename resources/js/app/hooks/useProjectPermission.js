@@ -4,7 +4,7 @@ import { hasFullAccess, hasReadOnlyAccess, isAdmin } from "../utils/permission-c
 export const useProjectPermission = () => {
     const page = usePage();
 
-    if (!page.permissions) return {
+    if (!page.props.permissions) return {
         admin: false,
         fullAccess: false,
         readOnly: false
@@ -12,8 +12,8 @@ export const useProjectPermission = () => {
 
 
     return {
-        admin: isAdmin(page.permissions),
-        fullAccess: hasFullAccess(page.permissions),
-        readOnly: hasReadOnlyAccess(page.permissions)
+        admin: isAdmin(page.props.permissions),
+        fullAccess: hasFullAccess(page.props.permissions),
+        readOnly: hasReadOnlyAccess(page.props.permissions)
     }
 }
