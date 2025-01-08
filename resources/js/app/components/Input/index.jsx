@@ -14,10 +14,10 @@ const Input = ({
     return (
         <div className="input">
             <label className="input-label">
-                <span className="input-label-text">
+                {label && (<span className="input-label-text">
                     {label}{" "}
                     {isRequired && <span className="input-asteriks">*</span>}
-                </span>
+                </span>)}
                 {type === "textarea" ? (
                     <textarea
                         className="input-input"

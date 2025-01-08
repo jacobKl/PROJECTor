@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\UserProjectPermissionProviderService;
 use App\Models\Project;
+use App\Models\ProjectParticipant;
+use App\Models\ProjectPermission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ProjectsController extends Controller
 {
+    public function __construct(
+        private UserProjectPermissionProviderService $projectPermissionService
+    ) {}
+
     public function index(Request $request) {
         $userProjects = Project::userProjects()->get();
 
@@ -36,10 +44,12 @@ class ProjectsController extends Controller
         return to_route('projects.index');
     }
 
-    public function show(Request $request, Project $project) {
+    public function show(Project $project) {
+        $permissions = $this->projectPermissionService->getUserPermissions($project);
 
         return Inertia::render("SingleProjectPage", [
-            "project" => $project
+            'project' => $project,
+            'permissions' => $permissions
         ]);
     }
 }

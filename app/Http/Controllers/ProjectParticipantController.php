@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use App\Models\Project;
 use App\Models\ProjectParticipant;
+use App\Models\ProjectPermission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ProjectParticipantController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request): RedirectResponse {
         $data = $request->validate([
             'project_id' => 'required',
             'email' => 'required|exists:users',
@@ -26,11 +28,18 @@ class ProjectParticipantController extends Controller
         $projectParticipant = ProjectParticipant::create([
             'project_id' => $project->id,
             'user_id' => $invited->id,
-            'status' => ProjectParticipant::STATUS_INVITED,
+            'status' => ProjectParticipant::STATUS_INVITED
+        ]);
+
+        ProjectPermission::create([
+            'user_id' => $invited->id,
+            'project_id' => $project->id,
             'role_id' => $role->id
         ]);
 
         Notification::userInvited($project, $invited->id, $projectParticipant->id);
+
+        return to_route('projects.index');
     }
 
     public function joinProject(Request $request) {

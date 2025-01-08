@@ -1,13 +1,15 @@
 import React from "react";
 import Layout from "../../app/components/Layout";
 import InviteParticipantForm from "../../app/components/InviteParticipantForm";
+import { useProjectPermission } from "../../app/hooks/useProjectPermission";
 
 const SingleProjectPage = ({project}) => {
+
+    const { isAdmin } = useProjectPermission();
+
     return (
         <div>
-            <h3>All tasks</h3>
-
-            <InviteParticipantForm projectId={project.id} />
+            {isAdmin && <InviteParticipantForm projectId={project.id} />}
         </div>
     );
 };

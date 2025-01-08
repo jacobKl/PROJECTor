@@ -7,16 +7,17 @@
     }
 
     &-label-text {
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 300;
         display: flex;
-        margin-bottom: 5px;
+        margin-bottom: 2px;
     }
 
     &-input {
         border: 1px solid variables.$border;
         border-radius: 8px;
         padding: 8px 10px;
+        height: 35px;
 
         @media (max-width: 768px) {
             padding: 8px 16px;
