@@ -14,9 +14,7 @@ const LoginForm = () => {
     const submit = (e) => {
         e.preventDefault();
 
-        post("/login", {
-            onSuccess: () => router.visit("/dashboard")
-        });
+        post("/login");
     };
 
     return (

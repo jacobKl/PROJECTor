@@ -7,14 +7,15 @@ import InviteParticipantForm from "../../app/components/InviteParticipantForm";
 import TasksList from "../../app/components/TasksList";
 
 const SingleProjectPage = ({ project, tasks }) => {
-
-    const { admin, fullAccess, readOnly  } = useProjectPermission();
+    const { admin, fullAccess, readOnly } = useProjectPermission();
 
     return (
-        <div>
+        <>
+            {(admin || fullAccess || readOnly) && (
+                <TasksList projectId={project.id} tasks={tasks} />
+            )}
             {admin && <InviteParticipantForm projectId={project.id} />}
-            {(admin || fullAccess || readOnly) && <TasksList projectId={project.id} />}
-        </div>
+        </>
     );
 };
 

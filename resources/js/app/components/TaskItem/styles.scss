@@ -1,0 +1,15 @@
+@use "../../scss/variables" as variables;
+
+.task-item {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    color: variables.$fontprimary;
+    background-color: variables.$sidebar;
+    padding: 10px;
+    border-radius: 4px;
+
+    &:nth-child(even) {
+        background-color: variables.$dark;
+    }
+}

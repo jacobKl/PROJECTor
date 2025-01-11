@@ -87,3 +87,14 @@ h3, .h3 {
         }
     }
 }
+
+.card {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: variables.$sidebar;
+    color: variables.$fontprimary;
+
+    input:not(.btn), select, textarea {
+        background-color: variables.$dark;
+    }
+}

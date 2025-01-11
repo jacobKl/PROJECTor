@@ -23,6 +23,8 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
     Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
     Route::post('/projects', [ProjectsController::class, 'store'])->name('projects.store');
 
+    Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('task.show');
+    Route::post('/tasks/{task}', [TaskController::class, 'edit'])->name('task.edit');
 
     Route::get('/projects/{project}/task/create', [TaskController::class, 'create'])->name('task.create');
     Route::post('/projects/{project}/task/create', [TaskController::class, 'store'])->name('task.create');

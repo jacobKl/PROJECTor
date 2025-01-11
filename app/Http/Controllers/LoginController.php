@@ -27,9 +27,8 @@ class LoginController extends Controller
             return to_route('dashboard.index');
         }
 
-
-        return to_route('dashboard.index')->withErrors([
-            "email" => "The provided credentials do not match our records."
+        return to_route('login')->withErrors([
+            'password' => 'Provided credentials do not match our records.'
         ]);
     }
 }

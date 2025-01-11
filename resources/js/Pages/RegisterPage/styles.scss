@@ -1,15 +1,13 @@
+@use "../../app/scss/variables" as variables;
+
+
 .register-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle, #EB4511 14%, #A72800 100%);
 
     &-modal {
-        background-color: white;
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 0 15px rgba(0,0,0,.3);
-        max-width: 400px;
+        max-width: 350px;
         width: 100%;
     }
 }

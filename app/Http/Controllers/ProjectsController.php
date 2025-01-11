@@ -47,10 +47,14 @@ class ProjectsController extends Controller
 
     public function show(Project $project) {
         $permissions = $this->projectPermissionService->getUserPermissions($project);
+        $tasks = Task::project($project)->get()->map(function (Task $task) {
+            return $task->toFrontendObject();
+        });
 
         return Inertia::render("SingleProjectPage", [
             'project' => $project,
-            'permissions' => $permissions
+            'permissions' => $permissions,
+            'tasks' => $tasks
         ]);
     }
 }

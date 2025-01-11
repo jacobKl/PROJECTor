@@ -48,7 +48,7 @@ const CreateProjectForm = () => {
                     onInput={(e) => setData("deadline", e.target.value)}
                     type="datetime-local"
                 />
-                <input type="submit" disabled={processing} className="btn btn-primary" />
+                <input type="submit" disabled={processing} className="btn btn-primary" value="Create project" />
             </form>
         </div>
     );

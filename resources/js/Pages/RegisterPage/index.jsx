@@ -5,7 +5,7 @@ import RegisterForm from "../../app/components/RegisterForm"
 
 const RegisterPage = () => {
     return (
-        <div className="register-page-modal">
+        <div className="register-page-modal card">
             <RegisterForm />
         </div>
     );

@@ -3,13 +3,13 @@ import React from 'react'
 import Input from '../Input';
 import Select from '../Select';
 
-const PRIORITIES = [
+export const PRIORITIES = [
     {value: "normal", textValue: "Normal"},
     {value: "high", textValue: "High"},
     {value: "urgent", textValue: "Urgent"},
 ];
 
-const STATUSES = [
+export const STATUSES = [
     {value: "new", textValue: "New"},
     {value: "in-progress", textValue: "In Progress"},
     {value: "to-verification", textValue: "To verification"},
@@ -20,7 +20,7 @@ const CreateTaskForm = ({ setData, data, errors, post, asignees, projectId }) =>
 
     const submit = (e) => {
         e.preventDefault();
-        // console.log(data);
+
         post(`/projects/${projectId}/task/create`, {
             onSuccess: () => router.visit("/projects/" + projectId),
         });

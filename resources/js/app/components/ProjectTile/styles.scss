@@ -1,16 +1,46 @@
+@use "../../scss/variables" as variables;
+
 .project-tile {
-    color: initial;
     text-decoration: none;
 
     &-title {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 500;
         margin-bottom: 5px;
     }
 
     &-deadline {
         color: #979797;
-        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    &-description {
         font-size: 14px;
+    }
+
+    &-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed variables.$fontprimary;
+        margin-bottom: 20px;
+    }
+
+    svg {
+        height: 15px;
+        width: 15px;
+        padding-right: 5px;
+    }
+
+    &-participants {
+        background-color: variables.$fontprimary;
+        color: variables.$sidebar;
+        padding: 5px 10px;
+        font-size: 12px;
+        height: 25px;
+        border-radius: 12.5px;
+        display: flex;
+        align-items: center;
     }
 }

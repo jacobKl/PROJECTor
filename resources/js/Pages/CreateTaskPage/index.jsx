@@ -1,7 +1,6 @@
-import "./styles.scss";
 import React from "react";
-import { useForm } from "@inertiajs/react";
 
+import { useForm } from "@inertiajs/react";
 import Layout from "../../app/components/Layout";
 import CreateTaskForm from "../../app/components/CreateTaskForm";
 
@@ -17,17 +16,14 @@ const CreateTaskPage = ({ projectId, asigneesArray }) => {
 
     return (
         <>
-            <div>
-                <CreateTaskForm
-                    data={data}
-                    setData={setData}
-                    post={post}
-                    errors={errors}
-                    asignees={asigneesArray}
-                    projectId={projectId}
-                />
-            </div>
-            <div>2</div>
+            <CreateTaskForm
+                data={data}
+                setData={setData}
+                post={post}
+                errors={errors}
+                asignees={asigneesArray}
+                projectId={projectId}
+            />
         </>
     );
 };

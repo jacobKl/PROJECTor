@@ -1,7 +1,7 @@
 @use "../../scss/variables" as variables;
 
 .aside {
-    background-color: variables.$primary;
+    background-color: variables.$sidebar;
     display: flex;
     flex-direction: column;
     padding: 20px;

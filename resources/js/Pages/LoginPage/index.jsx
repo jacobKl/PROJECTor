@@ -17,13 +17,6 @@ const LoginPage = () => {
                 <h3>Sign in to streamline your team’s time and tasks.</h3>
                 <LoginForm />
             </div>
-            <div className="login-page-register-column">
-                <p className="login-page-welcome h1">Welcome to Projector!</p>
-                <p className="login-page-no-account h3">Don’t have an account yet?</p>
-                <div>
-                    <button onClick={handleClick} className="btn btn-white">Register</button>
-                </div>
-            </div>
         </div>
     );
 };

@@ -1,9 +1,15 @@
-$primary: #a72800;
+$primary: rgba(237,98,31);
+$sidebar: rgb(29,32,34);
+$dark: rgb(24,26,30);
 $font: #000000;
-$border: #979797;
+$border: #cfcfcf;
+
+$fontprimary: rgb(240, 255, 247);
+$fontsecondary: rgb(84, 84, 84);
 
 body {
     color: $font;
+    background-color: $dark;
 }
 
 h1,
@@ -13,4 +19,5 @@ h4,
 h5,
 h6 {
     font-family: "Roboto";
+    color: $fontprimary;
 }

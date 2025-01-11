@@ -26,8 +26,9 @@ const InviteParticipantForm = ({ projectId }) => {
     };
 
     return (
-        <div className="invite-participant-form">
-            <h3>Invite collaborator</h3>
+        <div className="invite-participant-form card">
+            <h4>Invite collaborator</h4>
+
             <form onSubmit={submit}>
                 <Input
                     placeholder="Collaborator e-mail"
