@@ -14,7 +14,7 @@ const CreateProjectForm = () => {
         e.preventDefault();
 
         post("/projects", {
-            onSuccess: () => router.visit("/dashboard"),
+            onSuccess: () => router.visit("/"),
         });
     };
 

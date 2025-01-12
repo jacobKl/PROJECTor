@@ -30,6 +30,7 @@ const LoginForm = () => {
             />
             <Input
                 name="password"
+                type="password"
                 placeholder="Enter Your password"
                 label="Password"
                 isRequired={true}

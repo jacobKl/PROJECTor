@@ -9,10 +9,14 @@
         flex-direction: column;
         justify-content: center;
         padding: 80px;
-        max-width: 50%;
+        max-width: max(50%, 768px);
 
         @media (max-width: 1200px) {
             padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 20px;
         }
 
         @media (max-width: 768) {

@@ -11,10 +11,32 @@
 
     justify-content: space-between;
 
+    @media (max-width: 991px) {
+        display: flex;
+        width: 100%;
+        max-width: none !important;
+        flex-direction: row;
+    }
+
     &-footer {
         display: flex;
         align-items: center;
         gap: 10px;
+        position: relative;
+        z-index: 10;
+    }
+
+    &-footer-toggle {
+        cursor: pointer;
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        @media (min-width: 992px) {
+            display: none;
+        }
     }
 
     &-footer .btn {
@@ -30,10 +52,30 @@
             height: auto;
             max-width: 100%;
         }
+
+        @media (max-width: 991px) {
+            max-width: 140px;
+        }
     }
 
     &-menu {
         overflow: hidden;
+
+        @media (max-width: 991px) {
+            position: fixed;
+            height: 100vh;
+            background-color: variables.$sidebar;
+            right: -500px;
+            padding: 20px;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            transition: .15s linear all;
+
+            &-active {
+                right: 0;
+            }
+        }
     }
 
     &-menu-item {

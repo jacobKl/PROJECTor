@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Task extends Model
 {
@@ -34,5 +35,9 @@ class Task extends Model
             'asignee' => $this->asignee ? $this->asignee->toFrontendObject() : null,
             'description' => $this->description
         ];
+    }
+
+    public function scopeAssignedToUser($query) {
+        return $query->where('asignee', Auth::id());
     }
 }

@@ -11,11 +11,20 @@ const TasksList = ({ projectId, tasks }) => {
 
     return (
         <div className="task-list">
-            <div className="task-list__header-row">
-                <h3>All tasks</h3>
+            {projectId && (
+                <div className="task-list__header-row">
+                    <h3>All tasks</h3>
 
-                {(admin || fullAccess) && <Link className="btn btn-primary" href={`/projects/${projectId}/task/create`}>Create task</Link>}
-            </div>
+                    {(admin || fullAccess) && (
+                        <Link
+                            className="btn btn-primary"
+                            href={`/projects/${projectId}/task/create`}
+                        >
+                            Create task
+                        </Link>
+                    )}
+                </div>
+            )}
             <div>
                 <TaskItemHeader />
 

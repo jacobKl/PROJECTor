@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../app/components/Layout";
 
 const DashboardPage = () => {
-    return <h1>Dashboard page</h1>;
+    return <h3>Dashboard page</h3>;
 };
 
 DashboardPage.layout = (page) => (

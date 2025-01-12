@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->date('deadline');
             $table->integer('user_id');
         });

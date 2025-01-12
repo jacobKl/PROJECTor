@@ -11,3 +11,17 @@
         width: 100%;
     }
 }
+
+.register-form-wrapper {
+    width: 100%;
+    max-width: max(50%, 768px);
+    padding: 40px;
+
+    h1 {
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+}

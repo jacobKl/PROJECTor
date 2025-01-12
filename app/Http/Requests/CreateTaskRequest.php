@@ -29,7 +29,7 @@ class CreateTaskRequest extends FormRequest
             'status' => 'required',
             'priority' => 'required',
             'project_id' => 'required',
-            'description' => 'nullable'
+            'description' => 'required'
         ];
     }
 }

@@ -28,6 +28,7 @@ const Notifications = () => {
                                 <SingleNotification
                                     key={ix}
                                     {...singleNotification}
+                                    setShowNotifications={setShowNotifications}
                                 />
                             ))}
                         </>

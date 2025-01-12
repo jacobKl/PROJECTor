@@ -20,7 +20,8 @@ const RegisterForm = () => {
 
     return (
         <form className="register-form" onSubmit={submit}>
-            <h3>Create an account</h3>
+            <h1>Create an account</h1>
+            <h3>And start working on Your projects.</h3>
             <Input
                 name="email"
                 label="E-mail"
@@ -32,6 +33,7 @@ const RegisterForm = () => {
             <Input
                 name="password"
                 label="Password"
+                type="password"
                 isRequired={true}
                 value={data?.password}
                 onInput={(e) => setData("password", e.target.value)}
@@ -40,6 +42,7 @@ const RegisterForm = () => {
             <Input
                 name="password_confirmation"
                 label="Confirm Password"
+                type="password"
                 isRequired={true}
                 value={data?.password_confirmation}
                 onInput={(e) =>

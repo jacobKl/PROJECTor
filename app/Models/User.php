@@ -51,4 +51,37 @@ class User extends Authenticatable
             'name' => $this->name
         ];
     }
+
+    public function roles() {
+        return $this->hasMany(ProjectPermission::class, 'user_id', 'id');
+    }
+
+    public function project() {
+        return $this->hasOne(Project::class, 'user_id', 'id');
+    }
+
+    public function hasRole(int $roleId) {
+        foreach ($this->roles as $role) {
+            if ($role->role_id === $roleId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function isProjectOwner(array $taskOrProject) {
+        if (isset($taskOrProject['project'])) {
+            if ($taskOrProject['project']->user_id === $this->id) return true;
+        }
+
+        if (isset($taskOrProject['task'])) {
+            $project = Project::find($taskOrProject['task']->project_id);
+
+            if (!$project) return false;
+            if ($project->user_id === $this->id) return true;
+        }
+
+        return false;
+    }
 }
