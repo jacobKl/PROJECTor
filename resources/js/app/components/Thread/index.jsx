@@ -1,5 +1,5 @@
 import "./styles.scss";
-import React from "react";
+import React, { useRef } from "react";
 import { useForm, usePage } from "@inertiajs/react";
 
 import Input from "../Input";
@@ -9,7 +9,7 @@ import { useProjectPermission } from "../../hooks/useProjectPermission";
 const Thread = () => {
     const { task, comments } = usePage().props;
     const { admin, fullAccess, readOnly } = useProjectPermission();
-
+    const form = useRef();
     const { data, setData, post } = useForm({
         comment: "",
     });
@@ -18,6 +18,8 @@ const Thread = () => {
         e.preventDefault();
 
         post(`/tasks/${task.id}/comment/store`);
+        form.current.reset();
+        setData('comment', '');
     };
 
     return (
@@ -27,7 +29,7 @@ const Thread = () => {
             ))}
 
             {admin || fullAccess ? (
-                <form className="thread-comment card" onSubmit={handleSubmit}>
+                <form className="thread-comment card" onSubmit={handleSubmit} ref={form}>
                     <Input
                         type="textarea"
                         value={data?.comment}

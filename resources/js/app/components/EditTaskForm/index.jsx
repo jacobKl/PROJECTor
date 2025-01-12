@@ -13,7 +13,7 @@ const EditTaskForm = () => {
     const { data, errors, post, setData } = useForm({
         priority: task.priority,
         due_date: task.due_date,
-        asignee: task.asignee?.value,
+        asignee: task.asignee?.id,
         status: task.status,
         description: task.description
     });
@@ -36,9 +36,9 @@ const EditTaskForm = () => {
 
                 <form onChange={() => setUsed(true)}>
                     <div className="task-editable-row">
-                        <Select error={errors?.priority} value={data?.priority} options={PRIORITIES} callback={(e) => handleSelect("priority", e)} name="priority" label="Priority" selected={data.priority} />
+                        <Select error={errors?.priority} options={PRIORITIES} callback={(e) => handleSelect("priority", e)} name="priority" label="Priority" selected={data?.priority} />
                         <Input error={errors?.due_date} value={data?.due_date} type="datetime-local" label="Due date" name="due_date" onInput={e => setData('due_date', e.target.value)} />
-                        <Select error={errors?.asignee} value={data?.asignee} options={asignees} callback={(e) => handleSelect("asignee", e)} name="asignee" label="Asignee" selected={data.asignee} />
+                        <Select error={errors?.asignee} options={asignees} callback={(e) => handleSelect("asignee", e)} name="asignee" label="Asignee" selected={data?.asignee} />
                         <Select error={errors?.status} options={STATUSES} callback={(e) => handleSelect("status", e)} name="status" label="Status" selected={data?.status} />
                     </div>
 

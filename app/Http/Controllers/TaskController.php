@@ -41,7 +41,7 @@ class TaskController extends Controller
     public function store(CreateTaskRequest $request, Project $project)
     {
         Task::create([
-            'asignee' => null,
+            'asignee' => $request->has('asignee') ? $request->get('asignee') : null,
             ...$request->validated()
         ]);
 
@@ -68,14 +68,13 @@ class TaskController extends Controller
 
     public function edit(Request $request, Task $task)
     {
-        foreach (['priority', 'due_date', 'status', 'description'] as $field) {
+        foreach (['priority', 'due_date', 'status', 'description', 'asignee'] as $field) {
             if ($request->get($field)) {
                 $task->$field = $request->get($field);
             }
         }
 
         $task->save();
-        // TODO: asignee
 
         return to_route('task.show', [
             'task' => $task->id

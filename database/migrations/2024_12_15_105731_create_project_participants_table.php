@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('project_participants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("user_id");
-            $table->integer("project_id");
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('project_id')->nullable()->constrained('projects')->onDelete('set null');
             $table->text("status");
         });
     }

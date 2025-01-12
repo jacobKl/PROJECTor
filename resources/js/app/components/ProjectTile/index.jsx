@@ -4,8 +4,6 @@ import { Link } from "@inertiajs/react";
 import UserIcon from "../UserIcon";
 
 const ProjectTile = ({ id, name, description, deadline, participants, task_count }) => {
-    console.log(task_count);
-
     return (
         <Link className="card project-tile" href={`/projects/${id}`}>
             <div class="project-tile-row">

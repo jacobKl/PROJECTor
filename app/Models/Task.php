@@ -32,12 +32,16 @@ class Task extends Model
             'status' => $this->status,
             'due_date' => $formatDate ? Carbon::parse($this->due_date)->format('d-m-y H:i:s') : $this->due_date,
             'updated_at' => Carbon::parse($this->updated_at)->format('d-m-y H:i:s'),
-            'asignee' => $this->asignee ? $this->asignee->toFrontendObject() : null,
+            'asignee' => $this->asignee ? $this->user : null,
             'description' => $this->description
         ];
     }
 
     public function scopeAssignedToUser($query) {
         return $query->where('asignee', Auth::id());
+    }
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'asignee');
     }
 }

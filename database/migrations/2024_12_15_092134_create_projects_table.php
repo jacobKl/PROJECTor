@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->date('deadline');
-            $table->integer('user_id');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
         });
     }
 

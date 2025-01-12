@@ -119,4 +119,9 @@
 
 .main {
     min-height: 100vh;
+
+    @media (min-width: 992px) {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
 }

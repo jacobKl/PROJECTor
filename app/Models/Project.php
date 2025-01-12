@@ -25,7 +25,7 @@ class Project extends Model
     }
 
     public function getParticipantsAmount() {
-        $participants = ProjectParticipant::where('project_id', $this->id)->where('status', ProjectParticipant::STATUS_ACTIVE)->count() + 1;
+        $participants = ProjectParticipant::where('project_id', $this->id)->where('status', ProjectParticipant::STATUS_ACTIVE)->count();
 
         return $participants;
     }
