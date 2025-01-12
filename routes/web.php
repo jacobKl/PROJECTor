@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
@@ -25,6 +26,8 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
 
     Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('task.show');
     Route::post('/tasks/{task}', [TaskController::class, 'edit'])->name('task.edit');
+
+    Route::post('/tasks/{task}/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
     Route::get('/projects/{project}/task/create', [TaskController::class, 'create'])->name('task.create');
     Route::post('/projects/{project}/task/create', [TaskController::class, 'store'])->name('task.create');

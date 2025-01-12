@@ -27,6 +27,7 @@ const Input = ({
                         onInput={onInput}
                         rows={rows}
                         defaultValue={value}
+                        required={isRequired}
                     ></textarea>
                 ) : (
                     <input
@@ -36,6 +37,7 @@ const Input = ({
                         value={value}
                         onInput={onInput}
                         type={type}
+                        required={isRequired}
                     />
                 )}
                 {error && (<span className="input-error">{error}</span>)}

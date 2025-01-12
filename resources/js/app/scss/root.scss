@@ -56,8 +56,8 @@ h3, .h3 {
     text-align: center;
     border: none;
     -webkit-appearance: none;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
     transition: .4s all;
@@ -69,11 +69,13 @@ h3, .h3 {
 
     &-primary {
         color: white;
-        background-color: variables.$primary;
+        color: variables.$primary;
 
         &:hover {
-            background-color: lighten(variables.$primary, 5%);
+            color: lighten(variables.$primary, 5%);
         }
+
+        border-color: currentColor;
     }
 
     &-white {

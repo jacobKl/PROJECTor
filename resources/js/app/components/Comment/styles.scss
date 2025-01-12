@@ -1,0 +1,31 @@
+@use "./../../scss/variables" as variables;
+
+.comment {
+    color: variables.$fontprimary;
+    margin: 20px 0;
+
+    &-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+
+        svg {
+            width: 15px;
+            height: 15px;
+            fill: variables.$fontprimary;
+            margin-right: 5px;
+        }
+    }
+
+    &-date {
+        color: variables.$fontsecondary;
+        font-size: .6rem;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &-comment {
+        color: variables.$fontsecondary;
+        font-size: 14px;
+    }
+}

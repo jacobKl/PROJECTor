@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
+use App\Models\Comment;
 use App\Models\Project;
 use App\Models\ProjectParticipant;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -37,10 +39,12 @@ class TaskController extends Controller
     public function show(Task $task) {
         $asignees = ProjectParticipant::with('user')->where('project_id', $task->project_id)->get();
         $assigneesArray = $this->formatAsigneesArray($asignees);
+        $comments = Comment::task($task)->with('user')->get();
 
         return Inertia::render('EditTaskPage', [
             'task' => $task->toFrontendObject(false),
-            'asignees' => $assigneesArray
+            'asignees' => $assigneesArray,
+            'comments' => $comments
         ]);
     }
 

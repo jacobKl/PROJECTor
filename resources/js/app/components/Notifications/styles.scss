@@ -5,6 +5,16 @@
     flex-grow: 0;
     width: fit-content;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    &-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
 
     &-button {
         -webkit-appearance: none;
@@ -33,14 +43,28 @@
     }
 
     &-window {
-        position: absolute;
-        left: 110%;
-        bottom: 0;
-        background-color: variables.$fontprimary;
-        border-radius: 10px;
-        padding: 10px;
-        color: black;
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        max-width: 350px;
+        min-height: 400px;
+        width: 100%;
+
+        background-color: variables.$dark;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        font-size: 18px;
+        color: variables.$fontsecondary;
+        flex-direction: column;
+        border: 2px solid variables.$sidebar;
+        border-radius: 4px;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            fill: variables.$fontsecondary;
+            margin-bottom: 20px;
+        }
     }
 
     i {

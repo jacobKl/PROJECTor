@@ -36,12 +36,31 @@ class Project extends Model
             'name' => $this->name,
             'description' => $this->description,
             'deadline' => $this->deadline,
-            'participants' => $this->getParticipantsAmount()
+            'participants' => $this->getParticipantsAmount(),
+            'task_count' => $this->getTasksCount()
         ];
     }
 
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
+    }
+
+    private function getTasksCount(): array
+    {
+        $counts = [
+            'new' => 0,
+            'in-progress' => 0,
+            'to-verification' => 0,
+            'closed' => 0
+        ];
+
+        foreach ($this->tasks as $task) {
+            if (isset($counts[$task->status])) {
+                $counts[$task->status] = $counts[$task->status] + 1;
+            }
+        }
+
+        return $counts;
     }
 }

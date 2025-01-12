@@ -3,6 +3,24 @@
 .project-tile {
     text-decoration: none;
 
+    &-numbers {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    &-amount {
+        background-color: transparent;
+        color: black;
+        text-align: center;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 12px;
+        color: white;
+        border: 1px dashed white;
+    }
+
     &-title {
         font-size: 20px;
         font-weight: 500;

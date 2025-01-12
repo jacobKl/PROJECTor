@@ -1,0 +1,26 @@
+@use "./../../scss/variables" as variables;
+
+.single-notification {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &-message {
+        font-size: 14px;
+        color: variables.$fontprimary;
+    }
+
+    &-created {
+        font-size: 11px;
+        color: variables.$fontsecondary;
+    }
+
+    .btn {
+        max-height: 28px;
+        svg {
+            fill: variables.$primary;
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
