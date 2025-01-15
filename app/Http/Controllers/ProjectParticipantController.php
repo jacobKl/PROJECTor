@@ -11,10 +11,11 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use JsonException;
 
 class ProjectParticipantController extends Controller
 {
-    public function store(Request $request): RedirectResponse {
+    public function store(Request $request) {
         $data = $request->validate([
             'project_id' => 'required',
             'email' => 'required|exists:users',
@@ -24,6 +25,16 @@ class ProjectParticipantController extends Controller
         $project = Project::findOrFail($data['project_id']);
         $invited = User::where('email', $data['email'])->firstOrFail();
         $role = Role::where('name', $data['permissions'])->firstOrFail();
+
+        $existingInProject = ProjectParticipant::where('user_id', $invited->id)->first();
+
+        if ($existingInProject) {
+            return to_route('projects.show', [
+                'project' => $project->id
+            ])->withErrors([
+                'email' => 'User is already in project.'
+            ]);
+        }
 
         $projectParticipant = ProjectParticipant::create([
             'project_id' => $project->id,
@@ -48,11 +59,17 @@ class ProjectParticipantController extends Controller
             'notification_id' => 'required'
         ]);
 
+        $notification = Notification::find($data['notification_id']);
+        if ($notification->received) {
+            return new JsonResponse([
+                "errors" => "You have already joined this project."
+            ]);
+        }
+
         $projectParticipant = ProjectParticipant::find($data['invitation_id']);
         $projectParticipant->status = ProjectParticipant::STATUS_ACTIVE;
         $projectParticipant->save();
 
-        $notification = Notification::find($data['notification_id']);
         $notification->received = true;
         $notification->save();
 

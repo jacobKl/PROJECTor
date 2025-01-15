@@ -94,11 +94,15 @@
         opacity: 1;
     }
 
-    &-menu-item a {
+    &-menu-item > * {
         color: white;
         text-decoration: none;
         display: flex;
         align-items: center;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
     }
 
     &-menu-item-icon {

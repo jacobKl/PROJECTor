@@ -11,6 +11,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Middleware\AuthenticatedUser;
 use App\Http\Middleware\NotAuthenticatedUser;
 use App\Http\Middleware\UserWithAccess;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([NotAuthenticatedUser::class])->group(function () {
@@ -22,6 +23,12 @@ Route::middleware([NotAuthenticatedUser::class])->group(function () {
 });
 
 Route::middleware([AuthenticatedUser::class])->group(function () {
+    Route::post('/logout', function (Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+        return redirect('/login');
+    })->name('logout');
+
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/projects/{project}', [ProjectsController::class, 'show'])->name('projects.show');

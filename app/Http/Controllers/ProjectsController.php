@@ -48,6 +48,7 @@ class ProjectsController extends Controller
 
     public function show(Project $project) {
         $permissions = $this->projectPermissionService->getUserPermissions($project);
+        dd(Task::project($project)->get());
         $tasks = Task::project($project)->get()->map(function (Task $task) {
             return $task->toFrontendObject();
         });
