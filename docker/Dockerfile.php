@@ -25,7 +25,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer install
 
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN php artisan key:generate
 
-COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
