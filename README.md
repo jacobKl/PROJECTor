@@ -27,6 +27,11 @@
 - Project should be accessible at http://localhost:8000
 - Assets server http://localhost:5173
 
+## Existing accounts
+- admin@projector.pl - main account, creator of both of projects
+- user@projector.pl - account with full access to project Apollo Launch project
+- user_readonly@projector.pl - account with read only to Apollo Launch project
+
 ### Login
 ![Login user story](./readme/us_login.png)
 
