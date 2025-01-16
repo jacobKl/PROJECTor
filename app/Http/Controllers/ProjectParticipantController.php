@@ -24,7 +24,15 @@ class ProjectParticipantController extends Controller
 
         $project = Project::findOrFail($data['project_id']);
         $invited = User::where('email', $data['email'])->firstOrFail();
-        $role = Role::where('name', $data['permissions'])->firstOrFail();
+        $role = Role::where('name', $data['permissions'])->first();
+
+        if (!$role) {
+            return to_route('projects.show', [
+                'project' => $project->id
+            ])->withErrors([
+                'permissions' => 'Select proper role.'
+            ]);
+        }
 
         $existingInProject = ProjectParticipant::where('user_id', $invited->id)->first();
 

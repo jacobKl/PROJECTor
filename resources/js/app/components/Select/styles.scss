@@ -26,4 +26,10 @@
         border: none;
         color: variables.$fontprimary;
     }
+
+    &-error {
+        font-size: 14px;
+        color: variables.$primary;
+        margin-top: 5px;
+    }
 }

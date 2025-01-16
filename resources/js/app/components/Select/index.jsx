@@ -2,6 +2,7 @@ import "./styles.scss"
 import React from 'react'
 
 const Select = ({ name, callback, options, label, selected, error }) => {
+    console.log(error)
     return (
         <div className="select">
             {label && (<label className="select__label">{label}</label>)}
@@ -10,8 +11,8 @@ const Select = ({ name, callback, options, label, selected, error }) => {
                 {options.map(({value, textValue}) => (
                     <option selected={value === selected} key={value} value={value}>{textValue}</option>
                 ))}
-                {error && (<span className="select-error">{error}</span>)}
             </select>
+            {error && (<span className="select-error">{error}</span>)}
         </div>
     );
 }

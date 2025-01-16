@@ -13,7 +13,7 @@ const InviteParticipantForm = ({ projectId }) => {
     const { data, setData, post, processing, errors } = useForm({
         project_id: projectId,
         email: "",
-        permissions: "full_access",
+        permissions: "",
     });
 
     const submit = (e) => {
@@ -45,6 +45,7 @@ const InviteParticipantForm = ({ projectId }) => {
                     name="permissions"
                     callback={handleSelect}
                     options={OPTIONS}
+                    error={errors?.permissions}
                 />
 
                 <div className="invite-participant-form__button">
