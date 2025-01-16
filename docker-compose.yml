@@ -10,6 +10,7 @@ services:
       - "8000:80"
     volumes:
       - .:/var/www/html
+      - vendor:/var/www/html/vendor
     depends_on:
         - database
 
@@ -47,3 +48,4 @@ services:
 volumes:
   db-data:
   node_modules:
+  vendor:
