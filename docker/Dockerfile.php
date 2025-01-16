@@ -2,7 +2,8 @@ FROM php:8.2-apache as web
 
 RUN apt-get update && apt-get install -y \
     libzip-dev \
-    zip
+    zip \
+    netcat-openbsd
 
 RUN a2enmod rewrite
 
@@ -25,3 +26,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]

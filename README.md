@@ -20,6 +20,13 @@
 - **SCSS**
 - **Docker**
 
+## To run project: 
+- ```cp .env.example .env```
+- ```docker compose up --build```
+
+- Project should be accessible at http://localhost:8000
+- Assets server http://localhost:5173
+
 ### Login
 ![Login user story](./readme/us_login.png)
 

@@ -5,6 +5,13 @@
         display: flex;
         width: 100%;
         gap: 8px;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            & > * {
+                flex: 1 0 100%;
+            }
+        }
     }
 
     h4 {

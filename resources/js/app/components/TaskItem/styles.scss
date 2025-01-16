@@ -12,4 +12,17 @@
     &:nth-child(even) {
         background-color: variables.$dark;
     }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+        font-size: .8rem;
+
+        & > div:nth-child(5) {
+            display: none;
+        }
+
+        & > div:nth-child(6) {
+            display: none;
+        }
+    }
 }
